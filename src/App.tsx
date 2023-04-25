@@ -1,13 +1,19 @@
 import { BrowserRouter } from "react-router-dom"
 import { AppRoutes } from "./routes"
+import { MenuLateral } from "./shared/components"
+import { AppDrawerProvider } from "./shared/contexts"
 
 function App() {
 
 
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <AppDrawerProvider>
+      <BrowserRouter>
+        <MenuLateral>
+          <AppRoutes />
+        </MenuLateral>
+      </BrowserRouter>
+    </AppDrawerProvider>
   )
 }
 
