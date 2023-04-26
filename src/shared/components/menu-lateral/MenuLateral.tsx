@@ -4,7 +4,7 @@ import logo from "../../../static/images/logo-ensinar.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { useDrawerContext } from "../../contexts";
-import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import { useMatch, useNavigate} from "react-router-dom";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface Props {
@@ -18,12 +18,12 @@ interface IListItemLinkProps {
     onClick: (() => void) | undefined;
 }
 
-const ListItemLink = ({to, label, icon, onClick}: IListItemLinkProps) => {
-    
+const ListItemLink = ({ to, label, icon, onClick }: IListItemLinkProps) => {
+
     const navigate = useNavigate();
-    const resolvedPath = useResolvedPath(to);
-    
-    const match = useMatch(to);
+    /*  const resolvedPath = useResolvedPath(to); */
+
+    const match = useMatch(to); // verifica se o caminho da url atual === to
 
     const handleClick = () => {
         navigate(to);
@@ -58,16 +58,16 @@ export const MenuLateral = ({ children }: Props) => {
 
                     <Box flex={1}>
                         <List component="nav">
-                            <ListItemLink 
-                            onClick={smDown ? toggleDrawerOpen : undefined}
-                            to={"/inicio"} 
-                            label={"Inicio"} 
-                            icon={faHome}/>
-                            <ListItemLink 
-                            onClick={smDown ? toggleDrawerOpen : undefined}
-                            to={"/alunos"} 
-                            label={"Alunos"} 
-                            icon={faGraduationCap}/>
+                            <ListItemLink
+                                onClick={smDown ? toggleDrawerOpen : undefined}
+                                to={"/inicio"}
+                                label={"Inicio"}
+                                icon={faHome} />
+                            <ListItemLink
+                                onClick={smDown ? toggleDrawerOpen : undefined}
+                                to={"/alunos"}
+                                label={"Alunos"}
+                                icon={faGraduationCap} />
                         </List>
                     </Box>
                 </Box>

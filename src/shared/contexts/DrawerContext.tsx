@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState, useCallback } from "react";
 
-type Props = {
+interface IChildrenProps{
     children: ReactNode
 }
 
@@ -15,7 +15,7 @@ export const useDrawerContext = () => {
     return useContext(DrawerContext);
 }
 
-export const AppDrawerProvider = ({ children }: Props) => {
+export const AppDrawerProvider = ({ children }: IChildrenProps) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleDrawerOpen = useCallback(() => {
