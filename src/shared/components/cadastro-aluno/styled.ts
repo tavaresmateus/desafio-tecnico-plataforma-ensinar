@@ -15,3 +15,20 @@ export const Form = styled.form`
     width: 90%;
     height: 100%;
 `;
+export const BoxText = styled.div`
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    margin:0;
+`;
+
+export const Span = styled.span`
+    color:#FF0000;
+    margin:0;
+    font-size: 0.9em;
+    left:0;
+    bottom:0;
+    padding:0;  
+`
