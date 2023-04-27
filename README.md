@@ -20,10 +20,10 @@ O código deve ser versionado com Git, registrado em um repositório do GitHub e
 
 ### Logo
 
-![alt text](src\static\images\logo-ensinar.png)
+![alt text](src/static/images/logo-ensinar.png)
 
 ### Modelagem - link <a href="https://whimsical.com/plataforma-ensinar-PxSNGa428pNUvHXmoyq72n"> 🔗<a/>
-![alt text](src\static\images\modelagem.png)
+![alt text](src/static/images/modelagem.png)
 
 ## 🔨 Funcionalidades do projeto
 
