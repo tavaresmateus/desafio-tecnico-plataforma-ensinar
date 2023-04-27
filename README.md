@@ -32,6 +32,9 @@ O código deve ser versionado com Git, registrado em um repositório do GitHub e
 - [x] Visualização de aluno
 - [x] Remoção de aluno
 
+## 📌 Demonstração
+  <a href="https://main--verdant-cajeta-25570d.netlify.app/inicio"> 🔗 Clique aqui <a/>
+  
 ## ✔️ Técnicas e tecnologias utilizadas
 
 - ``React Js``
