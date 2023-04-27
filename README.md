@@ -42,5 +42,6 @@ O código deve ser versionado com Git, registrado em um repositório do GitHub e
 - ``StyledComponents``
 - ``ReactHookForm com Yup``
 - ``FontAwesome``
+- ``LocalStorage``
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
