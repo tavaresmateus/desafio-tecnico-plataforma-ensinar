@@ -5,7 +5,7 @@ export const ContainerHead = styled.div`
     border-radius: 4px;
     background-color: white;
     display:flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
 `;
 

@@ -73,7 +73,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
                 alunos.filter((aluno: { ativo: boolean; }) => aluno.ativo === true).map((aluno: IAluno) => {
 
                     return (
-                        <Grid onClick={() => handleOpenModal(aluno.cpf)} key={aluno.cpf} container sx={{ border: "1px solid #F5F9FF" }}>
+                        <Grid  key={aluno.cpf} container sx={{ border: "1px solid #F5F9FF" }}>
 
                             <Grid item xs={1.5}>
                                 <ItemSC>{aluno.cpf}</ItemSC>
@@ -91,7 +91,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
                                     <ButtonDelete onClick={() => deleteByCpf(aluno)}>
                                         <FontAwesomeIcon icon={faTrash} />
                                     </ButtonDelete>
-                                    <ButtonEdit>
+                                    <ButtonEdit onClick={() => handleOpenModal(aluno.cpf)}>
                                         <FontAwesomeIcon icon={faEdit} />
                                     </ButtonEdit>
                                 </ItemSC>
@@ -102,7 +102,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
             }
             <ModalAluno handleClose={handleCloseModal} open={open}>
                 <Box sx={{ height:500}}>
-                    <CadastroAluno/>
+                    <Typography>Em construção</Typography>
                 </Box>
             </ModalAluno>
         </SubContainer>

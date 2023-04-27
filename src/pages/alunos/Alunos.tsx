@@ -32,13 +32,12 @@ export const Alunos = () => {
         <LayoutBaseDePagina titulo="Alunos">
             <Box>
                 <ContainerHead>
-                    <NavLink to={"cadastrar"}>
+                    <NavLink style={{marginRight:10}} to={"cadastrar"}>
                         <Button><FontAwesomeIcon icon={faPlus} /></Button>
                     </NavLink>
 
                     <ButtonItem to="/alunos" titulo="Todos os alunos"/>
-                    <ButtonItem to="/alunos" titulo="Ativos" />
-                    <ButtonItem to="/alunos" titulo="Inativos" />
+
                 </ContainerHead>
             </Box>
             <Outlet/>
