@@ -16,12 +16,21 @@ De preferência, utilize as seguintes abordagens e tecnologias na construção d
 
 O código deve ser versionado com Git, registrado em um repositório do GitHub e o link deve ser compartilhado.</p>
 
+## 🔰 Imagens
+
+### Logo
+
+![alt text](src\static\images\logo-ensinar.png)
+
+### Modelagem - link <a href="https://whimsical.com/plataforma-ensinar-PxSNGa428pNUvHXmoyq72n"> 🔗<a/>
+![alt text](src\static\images\modelagem.png)
+
 ## 🔨 Funcionalidades do projeto
 
-- [ ] Cadastro de aluno
-- [ ] Update de aluno
-- [ ] Visualização de aluno
-- [ ] Remoção de aluno
+- [x] Cadastro de aluno
+- [ ] Update de aluno 
+- [x] Visualização de aluno
+- [x] Remoção de aluno
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
@@ -29,5 +38,9 @@ O código deve ser versionado com Git, registrado em um repositório do GitHub e
 - ``TypeScript``
 - ``MaterialUI``
 - ``Whimsical``
+- ``Canva``
+- ``StyledComponents``
+- ``ReactHookForm com Yup``
+- ``FontAwesome``
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
