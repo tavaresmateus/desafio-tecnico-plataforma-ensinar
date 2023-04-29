@@ -17,9 +17,6 @@ export const LayoutBaseDePagina = ({ children, titulo }: ILayoutBaseDePaginaProp
                 </Typography>
             </Box>
             <Box>
-
-            </Box>
-            <Box>
                 {children}
             </Box>
 

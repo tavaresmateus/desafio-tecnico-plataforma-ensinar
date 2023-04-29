@@ -1,10 +1,9 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid,Typography } from "@mui/material";
 import { ButtonDelete, ButtonEdit, Item as ItemSC, SubContainer } from "./styled";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import ModalAluno from "../modal-aluno/ModalAluno";
-import { CadastroAluno } from "..";
 
 interface IEnderecoAluno {
     cep: string;
@@ -51,9 +50,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
         if (deletar) {
             aluno.ativo = false;
             localStorage.setItem(aluno.cpf, JSON.stringify(aluno))
-        } else {
-            return undefined;
-        }
+        } 
 
     }
 

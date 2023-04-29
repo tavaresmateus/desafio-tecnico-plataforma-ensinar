@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material"
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material"
 import { BoxText, Container, Form, Span } from "./styled"
 
 import * as yup from "yup";
@@ -31,7 +31,7 @@ const createAlunoFormSchema = yup.object().shape({
     dataDeNascimento: yup.string().required("Digite sua data de nascimento"),
     telefone: yup.string().required("Digite seu telefone de contato"),
     cpf: yup.string().required("Digite seu Cpf"),
-    cep: yup.string()/* .required("Digite seu Cep").min(8, "Cep deve ter 8 caracteres").max(8, "Cep deve ter 8 caracteres") */,
+    cep: yup.string(),
     bairro: yup.string(),
     rua: yup.string(),
     cidade: yup.string(),
@@ -167,10 +167,10 @@ export const CadastroAluno = () => {
                     sx={{ margin: "10px 0 " }}
                 />
                 <FormControl fullWidth>
-                    <InputLabel id="estado">Estado</InputLabel>
+                    <InputLabel id="estadoLabel">Estado</InputLabel>
                     <Select
-                        {...register("endereco.cep")}
-                        labelId="estado"
+                        {...register("endereco.estado")}
+                        labelId="estadoLabel"
                         id="estado"
                         /* value={age} */
                         label="Estado"

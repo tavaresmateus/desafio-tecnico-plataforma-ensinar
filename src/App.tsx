@@ -5,7 +5,6 @@ import { AppDrawerProvider } from "./shared/contexts"
 
 function App() {
 
-
   return (
     <AppDrawerProvider>
       <BrowserRouter>
