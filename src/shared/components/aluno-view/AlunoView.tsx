@@ -1,8 +1,8 @@
-import { Box, Grid,Typography } from "@mui/material";
-import { ButtonDelete, ButtonEdit, Item as ItemSC, SubContainer } from "./styled";
+import { Box, Grid, Typography } from "@mui/material";
+import { ButtonDelete, ButtonEdit, ItemColumn, Item as ItemSC, SubContainer } from "./styled";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ModalAluno from "../modal-aluno/ModalAluno";
 
 interface IEnderecoAluno {
@@ -29,20 +29,17 @@ interface IAtivoProps {
 }
 
 export const AlunoView = ({ ativo }: IAtivoProps) => {
-    const [alunos, setAlunos] = useState<any>([])
-    function allStorage() {
-        var alunosArray = [],
-            keys = Object.keys(localStorage),
-            i = 0, key;
+    const [alunos, setAlunos] = useState<string[]>([])
 
-        for (; key = keys[i]; i++) {
-            alunosArray.push(JSON.parse(localStorage.getItem(key) || ""));
-        } 
-        return alunosArray;
+    const handleAluno = () => {
+        setAlunos();
+        console.log(alunos)
     }
+
     useEffect(() => {
-        setAlunos(allStorage());
-    }, []);
+        console.log(alunos)
+        handleAluno()
+    }, [alunos]);
 
     const deleteByCpf = (aluno: IAluno) => {
         var deletar = window.confirm("Deseja mesmo deletar este aluno?");
@@ -50,8 +47,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
         if (deletar) {
             aluno.ativo = false;
             localStorage.setItem(aluno.cpf, JSON.stringify(aluno))
-        } 
-
+        }
     }
 
     const [open, setOpen] = useState(false);
@@ -64,14 +60,34 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
     return (
         <SubContainer>
             {
-                alunos.filter((aluno: { ativo: boolean; }) => aluno.ativo === true) < 1 && <Box marginTop={5} display={"flex"} justifyContent={"center"}>Nenhum aluno ativo</Box>
+                /* alunos.filter((aluno: { ativo: boolean; }) => aluno.ativo === true) < 1 &&  */<Box marginTop={5} display={"flex"} justifyContent={"center"}>Nenhum aluno ativo</Box>
             }
             {alunos.length > 0 && ativo === true &&
-                alunos.filter((aluno: { ativo: boolean; }) => aluno.ativo === true).map((aluno: IAluno) => {
+                alunos.filter((aluno:IAluno)=> aluno.ativo === ativo).map((aluno:IAluno) => {
 
                     return (
-                        <Grid  key={aluno.cpf} container sx={{ border: "1px solid #F5F9FF" }}>
 
+                        <Grid key={aluno.cpf} container sx={{ border: "1px solid #F5F9FF" }}>
+                            <Grid container>
+                                <Grid item xs={1.5}>
+                                    <ItemColumn>CPF</ItemColumn>
+                                </Grid>
+                                <Grid item xs={2.5}>
+                                    <ItemColumn>NOME</ItemColumn>
+                                </Grid>
+                                <Grid item xs={2.5}>
+                                    <ItemColumn>EMAIL</ItemColumn>
+                                </Grid>
+                                <Grid item xs>
+                                    <ItemColumn>TELEFONE</ItemColumn>
+                                </Grid>
+                                <Grid item xs>
+                                    <ItemColumn>DATA DE NASCIMENTO</ItemColumn>
+                                </Grid>
+                                <Grid item xs>
+                                    <ItemColumn>AÇÃO</ItemColumn>
+                                </Grid>
+                            </Grid>
                             <Grid item xs={1.5}>
                                 <ItemSC>{aluno.cpf}</ItemSC>
                             </Grid><Grid item xs={2.5}>
@@ -98,7 +114,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
                 })
             }
             <ModalAluno handleClose={handleCloseModal} open={open}>
-                <Box sx={{ height:500}}>
+                <Box sx={{ height: 500 }}>
                     <Typography>Em construção</Typography>
                 </Box>
             </ModalAluno>
