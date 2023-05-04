@@ -29,17 +29,8 @@ interface IAtivoProps {
 }
 
 export const AlunoView = ({ ativo }: IAtivoProps) => {
-    const [alunos, setAlunos] = useState<string[]>([])
-
-    const handleAluno = () => {
-        setAlunos();
-        console.log(alunos)
-    }
-
-    useEffect(() => {
-        console.log(alunos)
-        handleAluno()
-    }, [alunos]);
+    const [alunos, setAlunos] = useState<IAluno[]>([] as IAluno[])
+    
 
     const deleteByCpf = (aluno: IAluno) => {
         var deletar = window.confirm("Deseja mesmo deletar este aluno?");
@@ -63,7 +54,7 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
                 /* alunos.filter((aluno: { ativo: boolean; }) => aluno.ativo === true) < 1 &&  */<Box marginTop={5} display={"flex"} justifyContent={"center"}>Nenhum aluno ativo</Box>
             }
             {alunos.length > 0 && ativo === true &&
-                alunos.filter((aluno:IAluno)=> aluno.ativo === ativo).map((aluno:IAluno) => {
+                alunos.filter((aluno: IAluno) => aluno.ativo === ativo).map((aluno: IAluno) => {
 
                     return (
 
