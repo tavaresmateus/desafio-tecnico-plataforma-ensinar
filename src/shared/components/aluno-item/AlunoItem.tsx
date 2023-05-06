@@ -5,7 +5,7 @@ import { AlunoView } from "../aluno-view/AlunoView";
 export const AlunoItem = () => {
     return (
         <Box>
-            <AlunoView ativo={true}/>
+            <AlunoView/>
         </Box>
     );
 }

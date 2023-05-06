@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, TextField, Typography } from "@mui/material";
 import { ButtonDelete, ButtonEdit, ItemColumn, Item as ItemSC, SubContainer } from "./styled";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,9 +28,32 @@ interface IAtivoProps {
     ativo: boolean
 }
 
-export const AlunoView = ({ ativo }: IAtivoProps) => {
-    const [alunos, setAlunos] = useState<IAluno[]>([] as IAluno[])
-    
+
+
+export const AlunoView = () => {
+    const [alunos, setAlunos] = useState<IAluno[]>([]);
+    const [aluno, setAluno] = useState<IAluno>();
+    const [nome, setNome] = useState("")
+    const [cpf, setCpf] = useState("")
+    const [email, setEmail] = useState("")
+    const [telefone, setTelefone] = useState("")
+    const [dataDeNascimento, setDataDeNascimento] = useState("")
+
+
+    useEffect(() => {
+        try {
+            var listaDeAlunos: IAluno[] = []
+            Object.values(localStorage).map((aluno) => {
+                var alunoJSON = JSON.parse(aluno);
+                listaDeAlunos.push(alunoJSON);
+            })
+            setAlunos(listaDeAlunos)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }, [])
 
     const deleteByCpf = (aluno: IAluno) => {
         var deletar = window.confirm("Deseja mesmo deletar este aluno?");
@@ -44,17 +67,20 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
     const [open, setOpen] = useState(false);
     const handleOpenModal = (cpf: string) => {
         console.log(cpf)
-        setOpen(true)
+        setAluno(JSON.parse(localStorage.getItem(cpf) || ""));
+        
+        setOpen(true)   
     };
     const handleCloseModal = () => setOpen(false);
 
     return (
         <SubContainer>
             {
-                /* alunos.filter((aluno: { ativo: boolean; }) => aluno.ativo === true) < 1 &&  */<Box marginTop={5} display={"flex"} justifyContent={"center"}>Nenhum aluno ativo</Box>
+                alunos.filter((aluno) => aluno.ativo === true).length < 1 && <Box marginTop={5} display={"flex"} justifyContent={"center"}>Nenhum aluno</Box>
+
             }
-            {alunos.length > 0 && ativo === true &&
-                alunos.filter((aluno: IAluno) => aluno.ativo === ativo).map((aluno: IAluno) => {
+            {alunos.length > 0 &&
+                alunos.filter((aluno: IAluno) => aluno.ativo === true).map((aluno) => {
 
                     return (
 
@@ -105,8 +131,35 @@ export const AlunoView = ({ ativo }: IAtivoProps) => {
                 })
             }
             <ModalAluno handleClose={handleCloseModal} open={open}>
-                <Box sx={{ height: 500 }}>
-                    <Typography>Em construção</Typography>
+                <Box sx={{ height: 500, width:"100%", overflow:"auto" }}>
+                    <Typography> Nome</Typography>
+                    <TextField id="nome"  defaultValue={aluno?.nome} fullWidth />
+                   
+                    <Typography> Email</Typography>
+                    <TextField id="email"  defaultValue={aluno?.email} fullWidth />
+                   
+                    <Typography> Data de Nascimento</Typography>
+                    <TextField id="dataDeNascimento" defaultValue={aluno?.dataDeNascimento} fullWidth />
+                   
+                    <Typography> Telefone</Typography>
+                    <TextField id="telefone"  defaultValue={aluno?.telefone} fullWidth />
+                   
+                    <Typography>CEP</Typography>
+                    <TextField id="cep"  defaultValue={aluno?.endereco.cep} fullWidth />
+                   
+                    <Typography> Bairro</Typography>
+                    <TextField id="bairro"  defaultValue={aluno?.endereco.bairro} fullWidth />
+                    
+                   <Typography> Cidade</Typography>
+                    <TextField id="cidade"  defaultValue={aluno?.endereco.cidade} fullWidth />
+                   
+                   <Typography> Rua</Typography>
+                    <TextField id="rua"  defaultValue={aluno?.endereco.rua} fullWidth />
+                   
+                   <Typography> Estado</Typography>
+                    <TextField id="cidade"  defaultValue={aluno?.endereco.estado} fullWidth />
+
+
                 </Box>
             </ModalAluno>
         </SubContainer>

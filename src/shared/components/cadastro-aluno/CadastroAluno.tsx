@@ -69,6 +69,7 @@ export const CadastroAluno = () => {
 
         localStorage.setItem(aluno.cpf, JSON.stringify(aluno));
         alert("Cadastro realizado com sucesso!");
+        window.location.href = '/alunos'
     }
     return (
         <Container>

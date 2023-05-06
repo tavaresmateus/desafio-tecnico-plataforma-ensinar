@@ -32,7 +32,7 @@ export default function ModalAluno(props: { open: boolean; handleClose: ((event:
         onClose={props.handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
-        sx={{display:"flex"}}
+        sx={{display:"flex", padding:0}}
         slotProps={{
           backdrop: {
             timeout: 500,
