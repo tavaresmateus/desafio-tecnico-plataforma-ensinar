@@ -28,7 +28,6 @@ O código deve ser versionado com Git, registrado em um repositório do GitHub e
 ## 🔨 Funcionalidades do projeto
 
 - [x] Cadastro de aluno
-- [ ] Update de aluno 
 - [x] Visualização de aluno
 - [x] Remoção de aluno
 
